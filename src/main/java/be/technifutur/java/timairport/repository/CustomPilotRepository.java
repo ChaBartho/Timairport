@@ -1,4 +1,4 @@
 package be.technifutur.java.timairport.repository;
 
-public class CustomerPilotRepository {
+public class CustomPilotRepository {
 }

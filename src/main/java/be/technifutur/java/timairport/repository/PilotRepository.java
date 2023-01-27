@@ -8,11 +8,15 @@ import java.util.List;
 
 public interface PilotRepository extends JpaRepository<Pilot, Long> {
 
+/*
+
     List<Pilot> findByFirstnameStartingWith(String start);
 
-    @Query("SELECT p FROM Pilot p WHERE p.firstname = p.lastname")
+    @Query("SELECT p FROM Pilot p WHERE p.firstName = p.lastName")
     List<Pilot> findWithSameName();
 
+
+*/
 
 
 }

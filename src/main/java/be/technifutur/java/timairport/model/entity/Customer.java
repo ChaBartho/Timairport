@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter @Setter
 public class Customer extends Person{
@@ -11,5 +13,8 @@ public class Customer extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false)
     private Long id;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Booking> bookings;
 
 }

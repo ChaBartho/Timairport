@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter @Setter
 public class TypePlane {
@@ -16,7 +18,13 @@ public class TypePlane {
     private String name;
 
     @Column
-    private int capacite;
+    private int capacity;
+
+    @ManyToMany(mappedBy = "planeTypesAllowed")
+    private List<Airport> airports;
+
+    @OneToMany(mappedBy = "type")
+    private List<Plane> planes;
 
 
 

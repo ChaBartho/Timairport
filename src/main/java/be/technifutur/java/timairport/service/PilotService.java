@@ -12,10 +12,8 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class PilotService {
 
-    //Propriété:
     private final PilotRepository pilotRepository;
 
-    //Constructeur:
     public PilotService(PilotRepository pilotRepository) {
         this.pilotRepository = pilotRepository;
     }
