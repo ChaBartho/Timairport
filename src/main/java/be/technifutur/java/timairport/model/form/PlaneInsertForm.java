@@ -9,18 +9,17 @@ import java.time.LocalDate;
 @Data
 public class PlaneInsertForm {
     @NotNull
-    @Pattern(regexp= "[A-Z]-[A-Z]{4}|[A-Z]{2}-[A-Z]{3}|N[0-9]{1,5}[A-Z]{0,2}") //définir une structure à le donnée
+    @Pattern(regexp= "[A-Z]-[A-Z]{4}|[A-Z]{2}-[A-Z]{3}|N[0-9]{1,5}[A-Z]{0,2}") //définir une structure à la donnée
     private String callSign;
-
     @NotNull
     @PastOrPresent
     private LocalDate registrationDate;
-
     @NotNull
     private Long companyId;
-
     @NotNull
     private Long typeId;
+
+
 
     public Plane toEntity(){
         Plane plane = new Plane();

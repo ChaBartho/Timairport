@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class PilotDTO {
-
-    private Long id;
+    private long id;
     private String name;
-
 }
