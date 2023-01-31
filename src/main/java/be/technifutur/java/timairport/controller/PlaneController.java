@@ -3,9 +3,7 @@ package be.technifutur.java.timairport.controller;
 import be.technifutur.java.timairport.model.dto.PlaneDTO;
 import be.technifutur.java.timairport.model.form.PlaneInsertForm;
 import be.technifutur.java.timairport.service.PlaneService;
-import be.technifutur.java.timairport.service.PlaneServiceImpl;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -65,7 +63,6 @@ public class PlaneController {
 
         planeService.update(id, mapValues);
     }
-
 
 
 

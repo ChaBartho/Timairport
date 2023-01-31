@@ -31,25 +31,23 @@ public class FlightServiceImpl implements FlightService{
 
         Flight flight = form.toEntity();
 
-        Plane plane = planeRepository.findById(form.getPlaneId())
-                .orElseThrow(RessourceNotFoundException::new);
+        Plane plane = planeRepository.findById(form.getPlaneId()).orElseThrow(RessourceNotFoundException::new);
         flight.setPlane(plane);
-        Pilot captain = pilotRepository.findById(form.getCaptainId())
-                .orElseThrow(RessourceNotFoundException::new);
+
+        Pilot captain = pilotRepository.findById(form.getCaptainId()).orElseThrow(RessourceNotFoundException::new);
         flight.setCaptain(captain);
-        Pilot firstOfficer = pilotRepository.findById(form.getFirstOfficerId())
-                .orElseThrow(RessourceNotFoundException::new);
+
+        Pilot firstOfficer = pilotRepository.findById(form.getFirstOfficerId()).orElseThrow(RessourceNotFoundException::new);
         flight.setFirstOfficer(firstOfficer);
-        Airport departure = airportRepository.findById(form.getDepartureId())
-                .orElseThrow(RessourceNotFoundException::new);
+
+        Airport departure = airportRepository.findById(form.getDepartureId()).orElseThrow(RessourceNotFoundException::new);
         flight.setDeparture(departure);
-        Airport destination = airportRepository.findById(form.getDestinationId())
-                .orElseThrow(RessourceNotFoundException::new);
+
+        Airport destination = airportRepository.findById(form.getDestinationId()).orElseThrow(RessourceNotFoundException::new);
         flight.setDestination(destination);
 
         flightRepository.save(flight);
 
-
-
     }
+
 }
