@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class DataInit implements InitializingBean {
         company2.setName("Deedlamerd");
         company2.setOriginCountry("Belgium");
 
-        companyRepository.save(company);
+        companyRepository.save(company2);
 
 //Création liste de type
 
@@ -78,23 +79,34 @@ public class DataInit implements InitializingBean {
 //New Aiport:
         Airport airport = new Airport();
         airport.setName("Technifutur International");
-        airport.setCity("Dubai");
+        airport.setAddress("Rue du Pouet");
+        airport.setCity("Paris");
+        airport.setCountry("France");
+        airport.setPlaneParking(8);
         airport.setPlaneTypesAllowed(maliste2);
 
         airportRepository.save(airport);
 
         Airport airport2 = new Airport();
         airport2.setName("YasQueen-Charles-De-Gaulle");
-        airport2.setCity("New-York");
+        airport2.setAddress("Rue de l'Aéroport LOL");
+        airport2.setCity("New York");
+        airport2.setCountry("USA");
+        airport2.setPlaneParking(4);
         airport2.setPlaneTypesAllowed(maliste);
 
-        airportRepository.save(airport);
+        airportRepository.save(airport2);
 
 //New Pilot:
         Pilot pilot = new Pilot();
         pilot.setFirstname("Julie-Vander");
         pilot.setLastname("Byse");
         pilot.setCompany(company);
+        pilot.setAddress("rue de l'Aigreur");
+        pilot.setPhone("0987/654321");
+        pilot.setEmail("vander@byse.com");
+        pilot.setLicenseId("13052017");
+        pilot.setLicenseAcquisition(LocalDate.ofEpochDay(4/ 2 /1993));
 
         pilotRepository.save(pilot);
 
@@ -102,6 +114,11 @@ public class DataInit implements InitializingBean {
         pilot2.setFirstname("Tim");
         pilot2.setLastname("Prégardine");
         pilot2.setCompany(company2);
+        pilot2.setAddress("rue de l'Amertume");
+        pilot2.setPhone("0123/456789");
+        pilot2.setEmail("prégardine@tim.com");
+        pilot2.setLicenseId("71025031");
+        pilot2.setLicenseAcquisition(LocalDate.ofEpochDay(13/ 7 /1987));
 
         pilotRepository.save(pilot2);
 

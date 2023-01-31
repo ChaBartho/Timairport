@@ -6,37 +6,32 @@ import be.technifutur.java.timairport.model.entity.Pilot;
 import be.technifutur.java.timairport.model.entity.Plane;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 import java.time.LocalDateTime;
-
+@Data
 public class FlightForm {
     @NotNull
-    private LocalDateTime departureTime;
+    private String departureTime;
     @NotNull
-    private LocalDateTime arrivalTime;
+    private String arrivalTime;
     @NotNull
-    private Airport departure;
+    private Long departureId;
     @NotNull
-    @Future
-    private Airport destination;
+    private Long destinationId;
     @NotNull
-    private Plane plane;
+    private Long planeId;
     @NotNull
-    private Pilot captain;
+    private Long captainId;
     @NotNull
-    private Pilot firstOfficer;
+    private Long firstOfficerId;
 
 
     public Flight toEntity(){
         Flight flight = new Flight();
 
-        flight.setDepartureTime(this.departureTime);
-        flight.setArrivalTime(this.arrivalTime);
-        flight.setDeparture(this.departure);
-        flight.setDestination(this.destination);
-        flight.setPlane(this.plane);
-        flight.setCaptain(this.captain);
-        flight.setFirstOfficer(this.firstOfficer);
+        flight.setDepartureTime(LocalDateTime.parse(this.departureTime));
+        flight.setArrivalTime(LocalDateTime.parse(this.arrivalTime));
 
         return flight;
     }
