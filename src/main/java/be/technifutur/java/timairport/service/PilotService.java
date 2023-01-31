@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
+//Il n'y a pas de PilotServiceImpl car on a été chercher tout dans DataInit
 
 @Service
 public class PilotService {

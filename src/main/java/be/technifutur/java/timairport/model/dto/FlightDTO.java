@@ -10,12 +10,13 @@ import java.time.LocalDateTime;
 @Builder
 public class FlightDTO {
 
+    private long id;
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
-    private Airport departure;
-    private Airport destination;
-    private Plane plane;
-    private Pilot captain;
-    private Pilot firstOfficer;
+    private Long departureId;
+    private Long destinationId;
+    private Long planeId;
+    private Long captainId;
+    private Long firstOfficerId;
 
 }
