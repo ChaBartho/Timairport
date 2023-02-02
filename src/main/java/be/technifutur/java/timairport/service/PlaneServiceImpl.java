@@ -96,13 +96,15 @@ public class PlaneServiceImpl implements PlaneService{
                     .orElseThrow(RessourceNotFoundException::new);
             plane.setCompany( company );
         }
-
         if(updateData.containsKey("inMaintenance")){
             plane.setInMaintenance( (boolean)updateData.get("inMaintenance") );
         }
-
         planeRepository.save(plane);
+    }
 
+    @Override
+    public void delete(long id) {
+        planeRepository.deleteById(id);
     }
 
 

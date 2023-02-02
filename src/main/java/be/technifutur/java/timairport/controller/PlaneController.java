@@ -13,18 +13,18 @@ import java.util.Map;
 @RestController
 @RequestMapping("/plane")
 public class PlaneController {
-
     private final PlaneService planeService;
-
     public PlaneController(PlaneService planeService) {
         this.planeService = planeService;
     }
 
     //PostMapping = insertion de données dans la db
+    //@PreAuthorize("isAuthenticated()")
     @PostMapping("/add")
     public void create(@RequestBody @Valid PlaneInsertForm form){
         planeService.create( form );
     }
+
     @GetMapping("/{id:[0-9]+}")
     public PlaneDTO getOne(@PathVariable long id){
         return planeService.getOne(id);
@@ -36,22 +36,24 @@ public class PlaneController {
         return planeService.getAll();
     }
 
-
-
-    //UPDATE maintenance
-    @PatchMapping(path ="/{id:[0-9]+}/update/", params = "maintenance")
-    public void updateMaintenance(@RequestParam boolean inMaintenance, @PathVariable long id){
-        planeService.updateMaintenance(id, inMaintenance);
-    }    //requestparam = param dans url = param
-
-
-    //UPDATE company
-    @PatchMapping("/{id:[0-9]+}/update/company")
-    public void updateCompany(@RequestParam long idCompany, @PathVariable long id){
-        planeService.updateCompany(id, idCompany);
+    @DeleteMapping("/delete/{id:[0-9]+}")
+    public void delete(@PathVariable long id) {
+        planeService.delete(id);
     }
 
-    @PatchMapping(path ="/{id:[0-9]+}/update/both")
+//    //UPDATE maintenance
+//    @PatchMapping(path ="/{id:[0-9]+}/update/", params = "maintenance")
+//    public void updateMaintenance(@RequestParam boolean inMaintenance, @PathVariable long id){
+//        planeService.updateMaintenance(id, inMaintenance);
+//    }    //requestparam = param dans url = param
+//
+//    //UPDATE company
+//    @PatchMapping(path = "/{id:[0-9]+}/update/", params = "company")
+//    public void updateCompany(@RequestParam long idCompany, @PathVariable long id){
+//        planeService.updateCompany(id, idCompany);
+//    }
+
+    @PatchMapping(path ="/{id:[0-9]+}/update/")
     public void update(@PathVariable long id, @RequestParam Map<String, String> params){
         Map<String, Object> mapValues = new HashMap<>();
 
