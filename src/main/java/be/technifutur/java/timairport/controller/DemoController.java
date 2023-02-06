@@ -45,7 +45,7 @@ public class DemoController {
 
     //Body
     //consumes vérifie la valeur du header "content-type" de la requête (valeur par défaut : "application/json")
-    @PostMapping(value = "/body", consumes = "application/body") //Vérifie que c'est bien du json
+    @PostMapping(value = "/body", consumes = "application/json") //Vérifie que c'est bien du json
     public void displayBody(@RequestBody @Valid DemoForm body){
         System.out.println( body );
     }

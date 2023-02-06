@@ -55,7 +55,7 @@ public class FlightServiceImpl implements FlightService{
 
     @Override
     public void update(long id, Map<String, Object> updateFlight) {
-        if( updateFlight == null || updateFlight.isEmpty() )
+/*        if( updateFlight == null || updateFlight.isEmpty() )
             return;
 
         Flight flight = flightRepository.findById(id)
@@ -68,7 +68,7 @@ public class FlightServiceImpl implements FlightService{
         if( updateFlight.containsKey("arrivalTime") ){
 
         }
-        flight.setArrivalTime();
+        flight.setArrivalTime();*/
     }
 
     @Override
